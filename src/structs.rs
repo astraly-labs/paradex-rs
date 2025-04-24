@@ -647,6 +647,11 @@ pub struct Fill {
         deserialize_with = "deserialize_string_to_f64"
     )]
     pub remaining_size: f64,
+    #[serde(
+        serialize_with = "serialize_f64_as_string",
+        deserialize_with = "deserialize_string_to_f64"
+    )]
+    pub size: f64,
     //pub seq_no : u64, //in paradex documentation, but does not appear to be sent.
     pub fill_type: FillType,
     #[serde(
