@@ -768,7 +768,7 @@ pub struct AccountMarginUpdate {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct AccountSlippageUpdate {
-    pub max_slippage: u64,
+    pub max_slippage: String,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
