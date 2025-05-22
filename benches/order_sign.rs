@@ -1,9 +1,9 @@
-use criterion::{criterion_group, criterion_main, BenchmarkId, Criterion};
+use criterion::{BenchmarkId, Criterion, criterion_group, criterion_main};
 use paradex::{
     message::sign_order,
     structs::{OrderRequest, OrderType, Side},
 };
-use rust_decimal::{prelude::FromPrimitive, Decimal};
+use rust_decimal::{Decimal, prelude::FromPrimitive};
 use starknet_crypto::Felt;
 use starknet_signers::SigningKey;
 
