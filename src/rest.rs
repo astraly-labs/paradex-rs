@@ -138,8 +138,12 @@ impl Client {
     /// # Errors
     ///
     /// If the markets cannot be retrieved
-    pub async fn markets(&self) -> Result<Vec<MarketSummaryStatic>> {
-        self.request(Method::Get::<()>(vec![]), "/v1/markets".into(), None)
+    pub async fn markets(&self, asset: Option<String>) -> Result<Vec<MarketSummaryStatic>> {
+        let params = match asset {
+            Some(asset) => vec![("market".to_string(), format!("{}-USD-PERP", asset.to_ascii_uppercase()))],
+            None => vec![],
+        };
+        self.request(Method::Get::<()>(params), "/v1/markets".into(), None)
             .await
             .map(
                 |result_container: ResultsContainer<Vec<MarketSummaryStatic>>| {

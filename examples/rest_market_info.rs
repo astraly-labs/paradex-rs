@@ -11,6 +11,9 @@ async fn main() {
         .unwrap();
 
     // Get and print all available markets
-    let markets = client.markets().await.unwrap();
+    let markets = client.markets(None).await.unwrap();
     info!("Markets: {:#?}", markets);
+
+    let market_for_btc = client.markets(Some("BTC".to_string())).await.unwrap();
+    info!("Markets BTC: {:#?}", market_for_btc);
 }
