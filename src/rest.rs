@@ -4,9 +4,9 @@ use std::time::{SystemTime, UNIX_EPOCH};
 
 use log::trace;
 use reqwest::header::{HeaderMap, HeaderValue};
-use starknet_core::types::Felt;
-use starknet_core::utils::cairo_short_string_to_felt;
-use starknet_signers::SigningKey;
+use starknet::core::types::Felt;
+use starknet::core::utils::cairo_short_string_to_felt;
+use starknet::signers::SigningKey;
 use tokio::sync::RwLock;
 
 use crate::error::{Error, Result};

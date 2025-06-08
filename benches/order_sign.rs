@@ -4,8 +4,8 @@ use paradex::{
     structs::{OrderRequest, OrderType, Side},
 };
 use rust_decimal::{Decimal, prelude::FromPrimitive};
+use starknet::signers::SigningKey;
 use starknet_crypto::Felt;
-use starknet_signers::SigningKey;
 
 use mimalloc::MiMalloc;
 

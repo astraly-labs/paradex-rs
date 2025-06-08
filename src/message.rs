@@ -8,13 +8,13 @@ use cached::proc_macro::cached;
 use reqwest::header::{HeaderMap, HeaderValue};
 use rust_decimal::Decimal;
 use rust_decimal::prelude::ToPrimitive;
-use starknet_core::crypto::compute_hash_on_elements;
-use starknet_core::types::Felt;
-use starknet_core::utils::{
+use starknet::core::crypto::compute_hash_on_elements;
+use starknet::core::types::Felt;
+use starknet::core::utils::{
     cairo_short_string_to_felt, get_contract_address, get_selector_from_name, starknet_keccak,
 };
+use starknet::signers::SigningKey;
 use starknet_crypto::{PedersenHasher, Signature};
-use starknet_signers::SigningKey;
 
 /*
 Ideally we could just use logic similar to below for signing.
@@ -235,7 +235,7 @@ pub fn sign_order(
 }
 
 static MODIFY_ORDER_TYPE_HASH: std::sync::LazyLock<Felt> = std::sync::LazyLock::new(|| {
-    starknet_core::utils::starknet_keccak(
+    starknet::core::utils::starknet_keccak(
         "ModifyOrder(timestamp:felt,market:felt,side:felt,orderType:felt,size:felt,price:felt,id:felt)"
             .as_bytes(),
     )
@@ -308,8 +308,8 @@ mod tests {
     use crate::structs::{Order, OrderInstruction, OrderRequest, OrderType, Side};
     use rust_decimal::Decimal;
     use rust_decimal::prelude::FromPrimitive;
-    use starknet_core::types::Felt;
-    use starknet_signers::SigningKey;
+    use starknet::core::types::Felt;
+    use starknet::signers::SigningKey;
 
     #[test]
     fn test_domain_hash() {

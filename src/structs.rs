@@ -1,7 +1,7 @@
 use crate::error::{Error, Result};
 use rust_decimal::Decimal;
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
-use starknet_core::utils::cairo_short_string_to_felt;
+use starknet::core::utils::cairo_short_string_to_felt;
 use starknet_crypto::Felt;
 use std::str::FromStr;
 
