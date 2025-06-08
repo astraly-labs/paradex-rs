@@ -11,7 +11,7 @@ async fn main() {
     let client = Client::new(url, None).await.unwrap();
     info!("system_config {:?}", client.system_config().await);
     info!("BBO {:?}", client.bbo(symbol).await);
-    info!("markets_static {:?}", client.markets().await);
+    info!("markets_static {:?}", client.markets(None).await);
 
     let private_key = std::env::var("PRIVATE_KEY").expect("PRIVATE_KEY not set");
     let client_private = Client::new(url, Some(private_key)).await.unwrap();

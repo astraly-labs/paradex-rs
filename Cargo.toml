@@ -1,6 +1,6 @@
 [package]
 name = "paradex"
-version = "0.5.0"
+version = "0.5.1"
 edition = "2024"
 license = "MIT"
 description = "Paradex client library"
@@ -17,7 +17,7 @@ reqwest =  {version="0.12.15", features=["json"]}
 rust_decimal = {version="1.37.1", features=["serde"]}
 serde = "1.0.219"
 serde_json = "1.0.140"
-starknet-core = "0.13.0"
+starknet-core = "0.14.0"
 starknet-crypto = "0.7.4"
 starknet-signers = "0.11.0"
 thiserror = "2.0.12"
