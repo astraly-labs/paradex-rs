@@ -28,6 +28,10 @@ simple_logger = "5.0.0"
 criterion = "0.5.1"
 mimalloc = "0.1.46"
 
+# Patch size-of to use forked version
+[patch.crates-io]
+size-of = { git = "https://github.com/astraly-labs/size-of", branch = "main" }
+
 [profile.bench]
 debug = true
 
